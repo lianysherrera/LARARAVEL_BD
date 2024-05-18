@@ -21,7 +21,7 @@ class CommentFactory extends Factory
         return [
             'thread_id' => Thread::factory(),
             'user_id' => User::factory(),
-            'body' => fake()->text(500)
+            'body' => $this->faker->text(500),
         ];
     }
 }
