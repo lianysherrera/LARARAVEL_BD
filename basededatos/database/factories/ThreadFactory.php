@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Thread>
  */
@@ -21,8 +23,9 @@ class ThreadFactory extends Factory
         return [
             'category_id' => Category::factory(),
             'user_id'     => User::factory(),
-            'title'        => $title = fake() ->unique()->sentence(),
-            'slug'        => Str::slug($title),
+
+            'name'       => $name = fake() ->unique()->sentence(),
+            'slug'        => Str::slug($name),
             'body'        => fake()->text(1300)
         ];
     }

@@ -5,6 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
+use App\Models\Tag;
+use App\Models\Thread;
+use App\Models\Category;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,13 +16,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
 
-        \App\Models\Category::factory(5)->create();
-        \App\Models\Thread::factory(40)->create();
+        Tag::factory(6)->create();
+        Category::factory(5)
+        ->has(
+            Thread::factory(10)->hasComments(8)
+        )
+        ->create();
+    // Tags -> Etiquetas
+    $tag = Tag::all();
 
-        \App\Models\Tag::factory(60)->create();
+    Thread::all()->each(function ($thread) use ($tag){
+        $tag = $tag->random(rand(1,6))->pluck('id')->toArray();
 
+        $thread->tags()->attach($tag);
+    });
+
+
+        //\App\Models\User::factory(10)->create();
+        // \App\Models\Category::factory(5)->create();
+        // \App\Models\Thread::factory(40)->create();
+        //\App\Models\Tag::factory(60)->create();
         // \App\Models\Comment::factory(60)->create();
 
         // \App\Models\User::factory()->create([

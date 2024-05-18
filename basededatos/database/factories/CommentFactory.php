@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+
+use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Thread;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
@@ -20,8 +21,8 @@ class CommentFactory extends Factory
     {
         return [
             'thread_id' => Thread::factory(),
-            'user_id' => User::factory(),
-            'body' => $this->faker->text(500),
+            'user_id'   => User::factory(),
+            'body'      => fake()->text(500)
         ];
     }
 }

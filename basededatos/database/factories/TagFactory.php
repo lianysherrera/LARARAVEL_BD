@@ -19,7 +19,7 @@ class TagFactory extends Factory
     {
         $name = $this->faker->unique()->word();
         return [
-            'name' => $name,
+            'name' => $name = fake()->unique()->word(),
             'slug' =>  Str::slug($name),
         ];
     }
