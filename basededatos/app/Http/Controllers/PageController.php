@@ -22,7 +22,7 @@ class PageController extends Controller
         $threads = $tag->threads()->orderBy('id', 'DESC')->paginate();
         return view('tag' , compact('tag' ,'threads'));
     }
-    public function thread($thread){
+    public function thread(Thread $thread){
         return view('thread' , compact('thread'));
     }
 
