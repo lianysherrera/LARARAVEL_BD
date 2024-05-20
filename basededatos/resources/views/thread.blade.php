@@ -28,7 +28,7 @@
                 {{ $thread->comments->count() }}  Comentarios
             </span>
     </h2>
-    @foreach($thread->comments as $comment)
+    @foreach($comments as $comment)
     <div class="max-w-3xl">
         <div class="flex items-center font-bold">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
