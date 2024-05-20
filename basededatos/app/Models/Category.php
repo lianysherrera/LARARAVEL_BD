@@ -10,6 +10,6 @@ class Category extends Model
     use HasFactory;
 
     public function threads(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Thread::class);
     }
 }
