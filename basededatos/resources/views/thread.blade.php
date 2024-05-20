@@ -1,8 +1,8 @@
 @extends('app')
 
-@section('title', $thread->title)
+@section('title', $title)
 
-@section('description', $thread->category->name)
+@section('description', $description)
 
 @section('content')
     <div class="leading-loose max-w-4xl mb-4">
